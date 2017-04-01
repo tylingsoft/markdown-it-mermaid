@@ -2,7 +2,7 @@ const mermaidChart = (code) => {
   return `<div class="mermaid">${code}</div>`
 }
 
-const ChartPlugin = (md) => {
+const MermaidPlugin = (md) => {
   const temp = md.renderer.rules.fence.bind(md.renderer.rules)
   md.renderer.rules.fence = (tokens, idx, options, env, slf) => {
     const token = tokens[idx]
@@ -18,4 +18,4 @@ const ChartPlugin = (md) => {
   }
 }
 
-export default ChartPlugin
+export default MermaidPlugin
