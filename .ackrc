@@ -1,2 +1,1 @@
 --ignore-file=match:/^yarn\.lock/
---ignore-file=match:/\.bundle\.js/
