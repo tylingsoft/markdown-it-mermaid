@@ -14,6 +14,20 @@ const mermaidChart = (code) => {
 }
 
 const MermaidPlugin = (md) => {
+  md.mermaid = {
+    gantt: {
+      axisFormat: (format) => {
+        window.mermaid.ganttConfig = {
+          axisFormatter: [
+            [format, (d) => {
+              return d.getDay() === 1
+            }]
+          ]
+        }
+      }
+    }
+  }
+
   const temp = md.renderer.rules.fence.bind(md.renderer.rules)
   md.renderer.rules.fence = (tokens, idx, options, env, slf) => {
     const token = tokens[idx]
