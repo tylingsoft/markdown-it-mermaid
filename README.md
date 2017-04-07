@@ -27,15 +27,7 @@ graph TD
 \`\`\``)
 
 
-## Development
-
-### Build
-
-```
-yarn build
-```
-
-### Test
+## Test
 
 ```
 yarn test
