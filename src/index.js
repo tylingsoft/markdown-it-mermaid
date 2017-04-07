@@ -1,5 +1,16 @@
 const mermaidChart = (code) => {
-  return `<div class="mermaid">${code}</div>`
+  if (typeof window === 'undefined' || !window.mermaid) {
+    return `<div class="mermaid">${code}</div>`
+  }
+  let mermaidError = null
+  window.mermaid.parseError = (error, hash) => {
+    mermaidError = error
+  }
+  if (window.mermaid.parse(code)) {
+    return `<div class="mermaid">${code}</div>`
+  } else {
+    return `<pre>${mermaidError}</pre>`
+  }
 }
 
 const MermaidPlugin = (md) => {
