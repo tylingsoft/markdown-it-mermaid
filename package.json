@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-mermaid",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Mermaid plugin for markdown-it.",
   "main": "src/index.js",
   "scripts": {
