@@ -1,11 +1,11 @@
 {
   "name": "markdown-it-mermaid",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Mermaid plugin for markdown-it.",
   "main": "src/index.js",
   "scripts": {
     "test": "node -r babel-register test/index.js",
-    "upgrade": "ncu -ua && yarn upgrade"
+    "upgrade": "rm -rf node_modules && rm yarn.lock && yarn install && ncu -ua && yarn upgrade"
   },
   "repository": "git@github.com:tylingsoft/markdown-it-mermaid.git",
   "author": "Tyler Long <tyler4long@gmail.com>",

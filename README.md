@@ -33,3 +33,8 @@ graph TD
 ```
 yarn test
 ```
+
+
+## Todo
+
+`axisFormatter` should support large date ranges
