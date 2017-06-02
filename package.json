@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "node -r babel-register test/index.js",
-    "upgrade": "rm -rf node_modules && rm yarn.lock && yarn install && ncu -ua && yarn upgrade"
+    "upgrade": "./node_modules/.bin/yarn-upgrade-all"
   },
   "repository": "git@github.com:tylingsoft/markdown-it-mermaid.git",
   "author": "Tyler Long <tyler4long@gmail.com>",
@@ -15,6 +15,7 @@
     "babel-register": "^6.24.0",
     "markdown-it": "^8.3.1",
     "npm-check-updates": "^2.10.5",
-    "standard": "^10.0.1"
+    "standard": "^10.0.1",
+    "yarn-upgrade-all": "^0.1.3"
   }
 }
