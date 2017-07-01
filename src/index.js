@@ -43,4 +43,4 @@ const MermaidPlugin = (md) => {
   }
 }
 
-export default MermaidPlugin
+module.exports = MermaidPlugin
