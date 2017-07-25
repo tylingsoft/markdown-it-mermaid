@@ -2,8 +2,10 @@
   "name": "markdown-it-mermaid",
   "version": "0.1.8",
   "description": "Mermaid plugin for markdown-it.",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "babel src --out-dir dist",
+    "prepublish": "npm run build",
     "test": "node -r babel-register test/index.js",
     "upgrade": "./node_modules/.bin/yarn-upgrade-all"
   },
@@ -11,7 +13,8 @@
   "author": "Tyler Long <tyler4long@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel-preset-env": "^1.5.1",
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
     "babel-register": "^6.24.1",
     "markdown-it": "^8.3.1",
     "standard": "^10.0.2",
