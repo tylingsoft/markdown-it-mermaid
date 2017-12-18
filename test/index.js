@@ -1,6 +1,6 @@
 import assert from 'assert'
 import markdownIt from 'markdown-it'
-import markdownItLatex from '../src/index'
+import markdownItLatex from '../dist/index'
 
 const mdi = markdownIt()
 mdi.use(markdownItLatex)

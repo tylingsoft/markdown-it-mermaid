@@ -12,7 +12,7 @@ yarn install markdown-it-mermaid
 
 ## Usage
 
-```JavaScript
+```js
 import markdownIt from 'markdown-it'
 import markdownItMermaid from 'markdown-it-mermaid'
 const mdi = markdownIt()
@@ -28,10 +28,24 @@ graph TD
 ```
 
 
-## Test
+## Development
+
+### Build
+
+```
+yarn build:watch
+```
+
+### Test
 
 ```
 yarn test
+```
+
+### Distribution
+
+```
+yarn release && npm publish
 ```
 
 
