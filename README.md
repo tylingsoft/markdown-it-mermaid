@@ -43,9 +43,11 @@ mdi.mermaid.loadPreferences({
 })
 ```
 
-You can `loadPreferences` from any preferences store as long as it supports the `get` method. For example, you can use `js-cookie` library as a preferences store.
+You can `loadPreferences` from any preferences store as long as it supports the `get` method. For example, you can use `js-cookie` library as a preferences store. Or you can write your own preferences store to achieve more flexibility.
 
 `mdi.mermaid.loadPreferences` not only applies the preferences, it also return the preferences loaded. Just in case you need to access the loaded preferences.
+
+`mdi.mermaid.loadPreferences` could be invoked multiple times. And the preferences applied later will override ones applied earlier.
 
 
 ## Development
