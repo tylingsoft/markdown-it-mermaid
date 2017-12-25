@@ -16,6 +16,7 @@ const mermaidChart = (code) => {
 }
 
 const MermaidPlugin = (md) => {
+  md.mermaid = mermaid
   mermaid.loadPreferences = (preferenceStore) => {
     let mermaidTheme = preferenceStore.get('mermaid-theme')
     if (mermaidTheme === undefined) {
