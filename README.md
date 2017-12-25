@@ -27,6 +27,26 @@ graph TD
 \`\`\``)
 ```
 
+### Customize mermaid
+
+```js
+mdi.mermaid.loadPreferences({
+  get: key => {
+    if (key === 'mermaid-theme') {
+      return 'forest'
+    } else if (key === 'gantt-axis-format') {
+      return '%Y/%m/%d'
+    } else {
+      return undefined
+    }
+  }
+})
+```
+
+You can `loadPreferences` from any preferences store as long as it supports the `get` method. For example, you can use `js-cookie` library as a preferences store.
+
+`mdi.mermaid.loadPreferences` not only applies the preferences, it also return the preferences loaded. Just in case you need to access the loaded preferences.
+
 
 ## Development
 
@@ -51,4 +71,4 @@ yarn release && npm publish
 
 ## Todo
 
-`axisFormatter` should support large date ranges
+`gantt-axis-format` should support large date ranges
