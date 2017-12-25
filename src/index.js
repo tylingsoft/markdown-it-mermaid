@@ -1,12 +1,14 @@
+import mermaid from 'mermaid'
+
 const mermaidChart = (code) => {
-  if (typeof window === 'undefined' || !window.mermaid) {
+  if (typeof window === 'undefined') {
     return `<div class="mermaid">${code}</div>`
   }
   let mermaidError = null
-  window.mermaid.parseError = (error, hash) => {
+  mermaid.parseError = (error, hash) => {
     mermaidError = error
   }
-  if (window.mermaid.parse(code) || mermaidError === null) {
+  if (mermaid.parse(code) || mermaidError === null) {
     return `<div class="mermaid">${code}</div>`
   } else {
     return `<pre>${mermaidError}</pre>`
@@ -14,17 +16,26 @@ const mermaidChart = (code) => {
 }
 
 const MermaidPlugin = (md) => {
-  md.mermaid = {
-    gantt: {
-      axisFormat: (format) => {
-        window.mermaid.ganttConfig = {
-          axisFormatter: [
-            [format, (d) => {
-              return d.getDay() === 1
-            }]
-          ]
-        }
-      }
+  mermaid.loadPreferences = (preferenceStore) => {
+    let mermaidTheme = preferenceStore.get('mermaid-theme')
+    if (mermaidTheme === undefined) {
+      mermaidTheme = 'default'
+    }
+    let ganttAxisFormat = preferenceStore.get('gantt-axis-format')
+    if (ganttAxisFormat === undefined) {
+      ganttAxisFormat = '%Y-%m-%d'
+    }
+    mermaid.initialize({
+      theme: mermaidTheme,
+      gantt: { axisFormatter: [
+        [ganttAxisFormat, (d) => {
+          return d.getDay() === 1
+        }]
+      ]}
+    })
+    return {
+      'mermaid-theme': mermaidTheme,
+      'gantt-axis-format': ganttAxisFormat
     }
   }
 
