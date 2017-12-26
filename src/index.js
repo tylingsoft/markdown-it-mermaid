@@ -1,17 +1,11 @@
 import mermaid from 'mermaid'
 
 const mermaidChart = (code) => {
-  if (typeof window === 'undefined') {
+  try {
+    mermaid.parse(code)
     return `<div class="mermaid">${code}</div>`
-  }
-  let mermaidError = null
-  mermaid.parseError = (error, hash) => {
-    mermaidError = error
-  }
-  if (mermaid.parse(code) || mermaidError === null) {
-    return `<div class="mermaid">${code}</div>`
-  } else {
-    return `<pre>${mermaidError}</pre>`
+  } catch ({ str, hash }) {
+    return `<pre>${str}</pre>`
   }
 }
 
