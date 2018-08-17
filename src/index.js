@@ -1,11 +1,20 @@
 import mermaid from 'mermaid'
 
+function escapeHtml(unsafe) {
+    return unsafe
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#039;");
+}
+
 const mermaidChart = (code) => {
   try {
     mermaid.parse(code)
-    return `<div class="mermaid">${code}</div>`
+    return `<div class="mermaid">${escapeHtml(code)}</div>`
   } catch ({ str, hash }) {
-    return `<pre>${str}</pre>`
+    return `<pre>${escapeHtml(str)}</pre>`
   }
 }
 
