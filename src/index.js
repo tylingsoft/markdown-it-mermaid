@@ -14,7 +14,7 @@ const mermaidChart = (code) => {
     mermaid.parse(code)
     return `<div class="mermaid">${escapeHtml(code)}</div>`
   } catch ({ str, hash }) {
-    return `<pre>${escapeHtml(str)}</pre>`
+    return `<pre class="mermaid-error">${escapeHtml(str)}</pre>`
   }
 }
 
